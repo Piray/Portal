@@ -1,0 +1,37 @@
+{
+    "twig": {
+        "development": {
+            "cache": "/tmp/compilation_cache",
+            "auto_reload": true,
+            "debug": true
+        },
+        "production": {
+            "cache": "/tmp/compilation_cache"
+        }
+    },
+    "slim": {
+        "development": {
+            "debug": true,
+            "mode": "development"
+        },
+        "production": {
+            "mode": "production"
+        }
+    },
+    "idiorm": {
+        "development": {
+            "logging": true,
+            "return_result_sets": true
+        },
+        "production": {
+            "return_result_sets": true
+        }
+    },
+    "db": {
+        "portal": {
+            "connection_string": "mysql:host=localhost;dbname=portal",
+            "username": "root",
+            "password": "saLL5032"
+        }
+    }
+}
