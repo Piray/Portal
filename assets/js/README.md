@@ -1,0 +1,1 @@
+Portal JavaScript assets.
