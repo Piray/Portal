@@ -18,7 +18,17 @@ class Portal
         $this->app->hook('slim.before.router', array($this, 'dispatchUiGlobalData'));
 
         // portal routing
-        $this->app->get('/', array($this, 'getIndex'))->name('index');
+        $this->app->get('/', array($this, 'getIndex'));
+        $this->app->get('/about', array($this, 'getAbout'));
+        $this->app->get('/contact', array($this, 'getContact'));
+    }
+    public function getAbout()
+    {
+        echo $this->ui->render('about/about.html.twig');
+    }
+    public function getContact()
+    {
+        echo $this->ui->render('contact/contact.html.twig');
     }
     public function getIndex()
     {
