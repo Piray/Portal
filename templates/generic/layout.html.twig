@@ -8,16 +8,13 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="{{ base_url }}/assets/vendor/twitter/bootstrap/docs-assets/ico/favicon.png">
 
-        <title>{% block title %}{% endblock %}</title>
+        <title>{% block title %}{% endblock%}</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{{ base_url }}/assets/vendor/twitter/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="{{ base_url }}/assets/portal/css/layout.css" rel="stylesheet">
-
-        <!-- Custom styles for portal -->
-        <link href="{{ base_url }}/assets/portal/css/customize.css" rel="stylesheet">
         <!-- Just for debugging purposes. Don't actually copy this line! -->
         <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -31,77 +28,89 @@
     </head>
 
     <body>
+        <div class="navbar-wrapper">
+            <div class="container">
 
-        <!-- Wrap all page content here -->
-        <div id="wrap">
-
-            <!-- Fixed navbar -->
-            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container">
-                    <!-- Toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{ base_url }}/">Piray</a>
+                <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="{{ base_url }}/">Piray</a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="{{ base_url }}/">Home</a></li>
+                                <li><a href="{{ base_url }}/about">About</a></li>
+                                <li><a href="{{ base_url }}/contact">Contact</a></li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Collect the nav links and other content for toggling -->
-                    <!-- start nav-collapse -->
-                    <div class="collapse navbar-collapse">
-                        <!-- start main nav -->
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{ base_url }}/apps"><span class="glyphicon glyphicon-th-large"></span> Apps</a></li>
-                            <li><a href="{{ base_url }}/contact"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
-                        </ul>
-                        <!-- end main nav -->
+            </div>
+        </div>
 
-                        <!-- start authenticate nav -->
-                        <ul class="nav navbar-nav navbar-right">
-                            {% if login_user %}
-                            {% set message_count = 12 %}
-                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Message <span class="badge">{{ message_count }}</span></a>
-                                <ul class="dropdown-menu">
-                                    {% for i in 0..message_count %}
-                                    <li> <a href="#"> there are some news or informations.</a> </li>
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ login_user.name }} <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="#">Settings</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ base_url }}/logout">Logout</a></li>
-                                </ul>
-                            </li>
-                            {% else %}
-                            <li><a href="{{ base_url }}/login"><span class="glyphicon glyphicon-lock"></span> Login</a></li>
-                            {% endif %}
-                        </ul>
-                        <!-- end authenticate nav -->
+        {% block runway %}
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Example headline.</h1>
+                            <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        </div>
                     </div>
-                    <!-- end nav-collapse -->
+                </div>
+                <div class="item">
+                    <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>One more for good measure.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div><!-- /.carousel -->
+        {% endblock %}
 
-            <!-- Begin page content -->
-            <div class="container">
-                {% block main %}
-                {% endblock %}
-            </div>
-        </div>
 
-        <div id="footer">
-            <div class="container">
-                <p class="text-muted text-center">Copyright © 2014 Piray Co., Ltd. All Rights Reserved.</p>
-            </div>
-        </div>
+        <div class="container marketing">
+            {% block main %}
+            {% endblock %}
+            <hr class="featurette-divider">
+            <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>Copyright © 2014 Piray Co., Ltd. All Rights Reserved.</p>
+            </footer>
+
+        </div><!-- /.container -->
 
 
         <!-- Bootstrap core JavaScript
@@ -109,6 +118,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="{{ base_url }}/assets/vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="{{ base_url }}/assets/vendor/twitter/bootstrap/docs-assets/js/holder.js"></script>
         {% block script %}
         {% endblock %}
     </body>
