@@ -43,11 +43,17 @@
                             <a class="navbar-brand" href="{{ base_url }}/">Piray</a>
                         </div>
                         <div class="navbar-collapse collapse">
+                        {% if navbar_list %}
                             <ul class="nav navbar-nav">
-                                <li><a href="{{ base_url }}/">Home</a></li>
-                                <li><a href="{{ base_url }}/about">About</a></li>
-                                <li><a href="{{ base_url }}/contact">Contact</a></li>
+                            {% for item in navbar_list %}
+                                {% if item.link == resource_url %}
+                                <li class="active"><a href="{{ base_url }}{{ item.link }}">{{ item.title }}</a></li>
+                                {% else %}
+                                <li><a href="{{ base_url }}{{ item.link }}">{{ item.title }}</a></li>
+                                {% endif %}
+                            {% endfor %}
                             </ul>
+                        {% endif %}
                         </div>
                     </div>
                 </div>

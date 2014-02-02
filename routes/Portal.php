@@ -5,6 +5,20 @@ namespace routes;
 class Portal
 {
     private $_mailApi = null;
+    private $_navList = array(
+        array(
+            'link' => '/',
+            'title' => 'Home'
+        ),
+        array(
+            'link' => '/about',
+            'title' => 'About'
+        ),
+        array(
+            'link' => '/contact',
+            'title' => 'Contact'
+        )
+    );
     public function __construct($app, $ui)
     {
         $this->app = $app;
@@ -40,6 +54,7 @@ class Portal
         $request = $this->app->request();
         $this->ui->addGlobal('base_url', $request->getRootUri());
         $this->ui->addGlobal('resource_url', $request->getResourceUri());
+        $this->ui->addGlobal('navbar_list', $this->_navList);
     }
 }
 
